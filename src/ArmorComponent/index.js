@@ -1,5 +1,5 @@
 import React from 'react';
-import armors from '../ShadowPanther_ArmorsPVE.js';
+import armors from '../Data/ShadowPanther_ArmorsPVE';
 import SelectionPanel from './SelectionPanel'
 export default class ArmorComponent extends React.Component {
   state = {

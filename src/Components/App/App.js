@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import ArmorComponent from './ArmorComponent'
+import ArmorComponent from '../../ArmorComponent'
 import Container from 'react-bootstrap/Container'
-import { Header, Content } from './Components'
+import { Header, Content } from '../'
 function App(){
 
   return (
