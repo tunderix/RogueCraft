@@ -1,13 +1,17 @@
 import React from 'react';
 import './App.css';
 import ArmorComponent from './ArmorComponent'
-
+import Container from 'react-bootstrap/Container'
+import { Header, Content } from './Components'
 function App(){
 
-  
   return (
     <div className="App">
-      <ArmorComponent></ArmorComponent>
+      <Container>
+        <Header />
+        <Content />
+        <ArmorComponent></ArmorComponent>
+      </Container>
     </div>
   );
 }
