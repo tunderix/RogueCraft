@@ -1,7 +1,4 @@
-import armors from './ShadowPanther_ArmorsPVE';
-import weapons from './ShadowPanther_WeaponsPVE';
-
-  const weaponIds = [
+const weaponIds = [
     {"WEAPON_M":""},
     {"WEAPON_O":""}
   ];
@@ -16,7 +13,4 @@ function idFor(slot){
     }
 }
 
-export function armorsOfType(slot){
-    return armors[idFor(slot)];
-}
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
-import { EquipmentSelection, Damage } from '../';
+import { EquipmentSelection, Damage, ItemSelector } from '../';
 export default class Content extends React.Component {
   state = {
     versions: []
@@ -9,8 +9,9 @@ export default class Content extends React.Component {
   render(){
     return (
         <Row>
-            <EquipmentSelection></EquipmentSelection>
-            <Damage></Damage>
+          <ItemSelector></ItemSelector>
+          <EquipmentSelection></EquipmentSelection>
+          <Damage></Damage>
         </Row>
     );
   }

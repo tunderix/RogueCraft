@@ -1,5 +1,4 @@
 import React from 'react';
-import armors from '../Data/ShadowPanther_ArmorsPVE';
 import SelectionPanel from './SelectionPanel'
 export default class ArmorComponent extends React.Component {
   state = {
@@ -11,12 +10,12 @@ export default class ArmorComponent extends React.Component {
   }
 
   onPhaseChanged(phase){
-    var chests = armors["CHEST"];
+    //var chests = armors["CHEST"];
     console.log(phase);
     if(phase){
-      chests = armors["FEET"];
+      //chests = armors["FEET"];
     }
-    this.setState({armors: chests});
+    //this.setState({armors: chests});
   }
 
   armorComponent(armor){

@@ -27,10 +27,10 @@ export default class EquipmentSelection extends React.Component {
 
   
   DropdownItemFor(armors){
-    if(armors != undefined){
-      return armors.forEach(armor => {
-        console.log("armor: " + armor)
-        (
+    if(armors !== undefined){
+      armors.forEach(armor => {
+        console.log("armor: " + armor);
+        return (
           <Dropdown.Item key="armor">
             {armor.NAME}
           </Dropdown.Item>
@@ -59,7 +59,7 @@ export default class EquipmentSelection extends React.Component {
 
     return (
       <Col>
-        {items.map(slot => this.listComponentFor(slot))}
+      
       </Col>
     );
   }
