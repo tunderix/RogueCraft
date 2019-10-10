@@ -1,5 +1,5 @@
 const armors = {
-    "Heads": [{
+    "HEAD": [{
             "NAME": "Bonescythe Helmet",
             "AEP": "98",
             "MAEP": "67",
@@ -1085,7 +1085,8 @@ const armors = {
             "SPECIAL": ""
         }
     ],
-    "NECK": [{
+    "NECK": [
+        {
             "NAME": "NECK",
             "AEP": "AEP",
             "MAEP": "MAEP",
@@ -2481,7 +2482,8 @@ const armors = {
             "SPECIAL": ""
         }
     ],
-    "SHOULDER": [{
+    "SHOULDER": [
+        {
             "NAME": "SHOULDER",
             "AEP": "AEP",
             "MAEP": "MAEP",
@@ -3660,7 +3662,8 @@ const armors = {
             "SPECIAL": ""
         }
     ],
-    "CHEST": [{
+    "CHEST": [
+        {
             "NAME": "CHEST",
             "AEP": "AEP",
             "MAEP": "MAEP",
@@ -4746,7 +4749,8 @@ const armors = {
             "SPECIAL": ""
         }
     ],
-    "WAIST": [{
+    "WAIST": [
+        {
             "NAME": "WAIST",
             "AEP": "AEP",
             "MAEP": "MAEP",
@@ -5832,7 +5836,8 @@ const armors = {
             "SPECIAL": ""
         }
     ],
-    "LEGS": [{
+    "LEGS": [
+        {
             "NAME": "LEGS",
             "AEP": "AEP",
             "MAEP": "MAEP",
@@ -7011,7 +7016,8 @@ const armors = {
             "SPECIAL": ""
         }
     ],
-    "FEET": [{
+    "FEET": [
+        {
             "NAME": "FEET",
             "AEP": "AEP",
             "MAEP": "MAEP",
@@ -8376,7 +8382,8 @@ const armors = {
             "SPECIAL": "Sprint +3 sec."
         }
     ],
-    "WRIST": [{
+    "WRIST": [
+        {
             "NAME": "WRIST",
             "AEP": "AEP",
             "MAEP": "MAEP",
@@ -9524,7 +9531,8 @@ const armors = {
             "SPECIAL": ""
         }
     ],
-    "HANDS": [{
+    "HANDS": [
+        {
             "NAME": "HANDS",
             "AEP": "AEP",
             "MAEP": "MAEP",
@@ -10889,7 +10897,8 @@ const armors = {
             "SPECIAL": ""
         }
     ],
-    "FINGER": [{
+    "FINGER": [
+        {
             "NAME": "FINGER",
             "AEP": "AEP",
             "MAEP": "MAEP",
@@ -12440,7 +12449,8 @@ const armors = {
             "SPECIAL": ""
         }
     ],
-    "TRINKET": [{
+    "TRINKET": [
+        {
             "NAME": "TRINKET",
             "AEP": "AEP",
             "MAEP": "MAEP",
@@ -13929,7 +13939,8 @@ const armors = {
             "SPECIAL": ""
         }
     ],
-    "BACK": [{
+    "BACK": [
+        {
             "NAME": "BACK",
             "AEP": "AEP",
             "MAEP": "MAEP",
@@ -15232,7 +15243,8 @@ const armors = {
             "SPECIAL": ""
         }
     ],
-    "RANGED": [{
+    "RANGED": [
+        {
             "NAME": "RANGED WEAPON",
             "AEP": "AEP",
             "MAEP": "MAEP",
