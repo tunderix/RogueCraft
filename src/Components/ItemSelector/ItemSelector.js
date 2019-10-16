@@ -17,9 +17,8 @@ export default class ItemSelector extends React.Component {
   render(){
     return (
         <Col>
-          { itemSlots.map(slot => 
-            this.category(slot)
-          )}
+          <ItemCategory key={"cat_items"}>
+          </ItemCategory>
         </Col>
     );
   }
