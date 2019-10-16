@@ -1,3 +1,5 @@
+import armors from './ShadowPanther_ArmorsPVE.json';
+
 const weaponIds = [
     {"WEAPON_M":""},
     {"WEAPON_O":""}
@@ -14,3 +16,6 @@ function idFor(slot){
 }
 
 
+export default function itemsForSlot(slot) {
+    return armors[idFor(slot)];
+}

@@ -3,7 +3,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
-import { armorsOfType } from "../../Data/DataParser";
+//import { armorsOfType } from "../../Data/DataParser";
 
 export default class EquipmentSelection extends React.Component {
   state = {
@@ -42,13 +42,13 @@ export default class EquipmentSelection extends React.Component {
 
 
   listComponentFor(slot) {
-    var armors = armorsOfType(slot)
+    //var armors = armorsOfType(slot)
     console.log("Slot: " + slot)
     return (
     <Row key={"row_" + slot}>
       <DropdownButton key={"dd_key_" + slot} title={"" + slot}>
         {
-            this.DropdownItemFor(armors)
+            //this.DropdownItemFor(armors)
         }
       </DropdownButton>
     </Row>);

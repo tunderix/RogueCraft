@@ -6,7 +6,7 @@ var slots = [
     "HANDS",
     "WAIST",
     "LEGS",
-    "BOOTS",
+    "FEET",
     "RING_1",
     "RING_2",
     "TRINKET_1",
