@@ -3,9 +3,7 @@ import Col from 'react-bootstrap/Col';
 import ItemCategory from "./ItemCategory";
 import itemSlots from "../../Data/ItemSlot";
 export default class ItemSelector extends React.Component {
-  state = {
-    versions: []
-  };
+  
 
   category = (slot) => {
     return (

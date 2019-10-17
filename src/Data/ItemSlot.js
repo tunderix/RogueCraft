@@ -14,4 +14,5 @@ var slots = [
     "RANGED"
   ];
 
+
 export default slots;

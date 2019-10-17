@@ -4,12 +4,13 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 export default class ItemListItem extends React.Component {
 
-  onItemClick(item, index){
+
+  onItemClick(item){
     console.log("item clicked" + item);
   }
 
   armor(item, index) {
-    return (<Dropdown.Item key={"dd_item_"+item.NAME} onClick={this.onItemClick}>{item.NAME}</Dropdown.Item>)
+    return (<Dropdown.Item key={"dd_item_"+item.NAME} onSelect={this.props.itemSelected} eventKey={this.props.itemName + "-" + index}>{item.NAME}</Dropdown.Item>)
   }
 
   render(){
@@ -21,6 +22,7 @@ export default class ItemListItem extends React.Component {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
+              <Dropdown.Header>{this.props.itemName}</Dropdown.Header>
               {this.props.items.map((item, key) => this.armor(item, key))}
             </Dropdown.Menu>
           </Dropdown>
