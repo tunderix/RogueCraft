@@ -15,7 +15,7 @@ export function idFor(slot){
     }
 }
 
-export function item(slot, id){
+export function itemById(slot, id){
     const slotID = idFor(slot);
     return armors[slotID][id];
 }

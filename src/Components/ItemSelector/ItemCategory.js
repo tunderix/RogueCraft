@@ -4,7 +4,7 @@ import ItemListItem from './ItemListItem';
 import armors from '../../Data/ShadowPanther_ArmorsPVE.json';
 
 import itemSlots from '../../Data/ItemSlot';
-import itemsForSlot, { item } from '../../Data/DataParser';
+import itemsForSlot, { itemById } from '../../Data/DataParser';
 
 const INITIAL_STATE = {
   selectedValues: [
@@ -45,7 +45,7 @@ export default class ItemCategory extends React.Component {
     const itemSpecs = itemString.split("-");
     const slot = itemSpecs[0];
     const itemId = itemSpecs[1];
-    console.log(slot);
+    
     this.setState(state => {
       const values = state.selectedValues.map((valueObject, j) => {
         if(valueObject.slot === slot){
@@ -58,12 +58,38 @@ export default class ItemCategory extends React.Component {
         values
       };
     });
+
+    this.calculate()
+  }
+
+  calculate(){
+
+    var maep = 0;
+    var hit = 0;
+    var crit = 0;
+
+    const values = this.state.selectedValues.map(valueObject => {
+      const item = itemById(valueObject.slot, valueObject.item);
+      if(item !== undefined){
+        maep = maep + Number(item.MAEP);
+        hit = hit + Number(item.HIT.split("%")[0]);
+        crit = crit + Number(item.CRIT.split("%")[0]);
+      }
+    })
+
+    const stats = {
+      MAEP: maep,
+      HIT: hit,
+      CRIT: crit,
+    }
+
+    this.props.onEquip(stats)
   }
 
   itemForSlot = (slot, itemId) => {
     const itemsFromParser = itemsForSlot(slot);
     var itemName = slot;
-    var itemForID = item(slot, itemId);
+    var itemForID = itemById(slot, itemId);
     if(itemForID !== undefined){
       console.log(itemForID);
       itemName = itemForID.NAME;

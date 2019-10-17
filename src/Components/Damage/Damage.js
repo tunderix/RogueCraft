@@ -8,7 +8,9 @@ export default class Damage extends React.Component {
   render(){
     return (
         <Col>
-          DMG
+          <p>MAEP: {this.props.maep}</p>
+          <p>HIT: {this.props.hit}</p>
+          <p>CRIT: {this.props.crit}</p>
         </Col>
     );
   }
