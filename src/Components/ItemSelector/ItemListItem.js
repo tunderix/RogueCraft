@@ -10,13 +10,14 @@ export default class ItemListItem extends React.Component {
   }
 
   armor(item, index) {
-    return (<Dropdown.Item key={"dd_item_"+item.NAME} onSelect={this.props.itemSelected} eventKey={this.props.itemName + "-" + index}>{item.NAME}</Dropdown.Item>)
+    return (<Dropdown.Item key={"dd_item_"+item.NAME} onSelect={this.props.itemSelected} eventKey={this.props.slot + "-" + index}>{item.NAME + " - " + item.MAEP}</Dropdown.Item>)
   }
 
   render(){
     return (
         <ListGroup.Item>
-          <Dropdown>
+          
+          <Dropdown style={{ float: "left" }}>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               {this.props.itemName}
             </Dropdown.Toggle>
@@ -26,7 +27,16 @@ export default class ItemListItem extends React.Component {
               {this.props.items.map((item, key) => this.armor(item, key))}
             </Dropdown.Menu>
           </Dropdown>
-            
+
+          <Dropdown style={{ float: "right" }}>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Ench
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item>Item 1</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </ListGroup.Item>
     );
   }

@@ -43,6 +43,7 @@ export default class ItemCategory extends React.Component {
 
   itemSelected = (itemString) => {
     const itemSpecs = itemString.split("-");
+    console.log(itemSpecs);
     const slot = itemSpecs[0];
     const itemId = itemSpecs[1];
     
@@ -91,11 +92,10 @@ export default class ItemCategory extends React.Component {
     var itemName = slot;
     var itemForID = itemById(slot, itemId);
     if(itemForID !== undefined){
-      console.log(itemForID);
       itemName = itemForID.NAME;
     }
     return (
-    <ItemListItem key={"list_item_"+slot} itemName={itemName} items={itemsFromParser} itemSelected={this.itemSelected} />)
+  <ItemListItem key={"list_item_"+slot} itemName={itemName} items={itemsFromParser} itemSelected={this.itemSelected} slot={slot}/>)
   }
 
   render(){

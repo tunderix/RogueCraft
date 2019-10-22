@@ -6,7 +6,7 @@ export default class ItemSelector extends React.Component {
   
   render(){
     return (
-        <Col>
+        <Col xs={5}>
           <ItemCategory onEquip={this.props.onEquip} key={"cat_items"}>
           </ItemCategory>
         </Col>
