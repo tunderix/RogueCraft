@@ -3,24 +3,25 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import ItemListItem from './ItemListItem';
 import armors from '../../Data/ShadowPanther_ArmorsPVE.json';
 
-import itemSlots from '../../Data/ItemSlot';
-import itemsForSlot, { itemById } from '../../Data/DataParser';
+import itemSlots from '../../Data/Slots';
+import itemsForSlot, { itemById, enchant } from '../../Data/DataParser';
 
 const INITIAL_STATE = {
   selectedValues: [
-    {slot: "HEAD", item: null},
-    {slot: "SHOULDER", item: null},
-    {slot: "CHEST", item: null},
-    {slot: "WRIST", item: null},
-    {slot: "HANDS", item: null},
-    {slot: "WAIST", item: null},
-    {slot: "LEGS", item: null},
-    {slot: "FEET", item: null},
-    {slot: "RING_1", item: null},
-    {slot: "RING_2", item: null},
-    {slot: "TRINKET_1", item: null},
-    {slot: "TRINKET_2", item: null},
-    {slot: "RANGED", item: null}
+    {slot: "HEAD", item: null, enchant: null},
+    {slot: "SHOULDER", item: null, enchant: null},
+    {slot: "CHEST", item: null, enchant: null},
+    {slot: "WRIST", item: null, enchant: null},
+    {slot: "HANDS", item: null, enchant: null},
+    {slot: "BACK", item: null, enchant: null},
+    {slot: "WAIST", item: null, enchant: null},
+    {slot: "LEGS", item: null, enchant: null},
+    {slot: "FEET", item: null, enchant: null},
+    {slot: "RING_1", item: null, enchant: null},
+    {slot: "RING_2", item: null, enchant: null},
+    {slot: "TRINKET_1", item: null, enchant: null},
+    {slot: "TRINKET_2", item: null, enchant: null},
+    {slot: "RANGED", item: null, enchant: null}
   ],
 };
 export default class ItemCategory extends React.Component {
@@ -30,6 +31,7 @@ export default class ItemCategory extends React.Component {
 
     this.state = INITIAL_STATE;
 
+    this.enchantSelected = this.enchantSelected.bind(this);
     this.itemSelected = this.itemSelected.bind(this);
   }
 
@@ -41,9 +43,28 @@ export default class ItemCategory extends React.Component {
     this.setState({ ...INITIAL_STATE });
   };
 
+  enchantSelected = (enchantString) => {
+    const enchantSpecs = enchantString.split("-");
+    const slot = enchantSpecs[0];
+    const enchantId = enchantSpecs[1];
+    console.log(slot + "-" + enchantId);
+
+    this.setState(state => {
+      const values = state.selectedValues.map((valueObject, j) => {
+        if(valueObject.slot === slot){
+          valueObject.enchant = enchantId
+        }
+        return valueObject
+      })
+
+      return {
+        values
+      };
+    }, () => { this.calculate() });
+  }
+
   itemSelected = (itemString) => {
     const itemSpecs = itemString.split("-");
-    console.log(itemSpecs);
     const slot = itemSpecs[0];
     const itemId = itemSpecs[1];
     
@@ -59,8 +80,6 @@ export default class ItemCategory extends React.Component {
         values
       };
     }, () => { this.calculate() });
-
-    
   }
 
   calculate(){
@@ -76,6 +95,13 @@ export default class ItemCategory extends React.Component {
         hit = hit + Number(item.HIT.split("%")[0]);
         crit = crit + Number(item.CRIT.split("%")[0]);
       }
+
+      if(valueObject.enchant !== null){
+        const ench = enchant(valueObject.slot, valueObject.enchant);
+        if(ench !== undefined){
+          maep = maep + Number(ench.MAEP);
+        }
+      }
     })
 
     const stats = {
@@ -87,22 +113,32 @@ export default class ItemCategory extends React.Component {
     this.props.onEquip(stats)
   }
 
-  itemForSlot = (slot, itemId) => {
+  itemForSlot = (slot, itemId, enchantId) => {
     const itemsFromParser = itemsForSlot(slot);
     var itemName = slot;
+    var enchName = slot;
+
     var itemForID = itemById(slot, itemId);
     if(itemForID !== undefined){
       itemName = itemForID.NAME;
     }
+
+    if(enchantId !== null){
+      var enchantForID = enchant(slot, enchantId);
+      if(enchantForID !== undefined){
+        enchName = enchantForID.NAME;
+      }
+    }
+    
     return (
-  <ItemListItem key={"list_item_"+slot} itemName={itemName} items={itemsFromParser} itemSelected={this.itemSelected} slot={slot}/>)
+  <ItemListItem key={"list_item_"+slot} itemName={itemName} items={itemsFromParser} itemSelected={this.itemSelected} slot={slot} enchantName={ enchName } enchantSelected={this.enchantSelected}/>)
   }
 
   render(){
     return (
         <div>
             <ListGroup>
-              {this.state.selectedValues.map( valueItem => this.itemForSlot(valueItem.slot, valueItem.item))}
+              {this.state.selectedValues.map( valueItem => this.itemForSlot(valueItem.slot, valueItem.item, valueItem.enchant))}
             </ListGroup>
         </div>
     );

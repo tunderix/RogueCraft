@@ -1,5 +1,5 @@
-const weapons = {
-    "Main Hands": [{
+{
+    "MH": [{
             "NAME": "Gressil, Dawn of Ruin",
             "AEP": "503",
             "MAEP": "488",
@@ -2835,7 +2835,7 @@ const weapons = {
             "SPECIAL": ""
         }
     ],
-    "Main Hand Daggers": [{
+    "MH_D": [{
         "NAME": "Kingsfall",
         "AEP": "501",
         "MAEP": "501",
@@ -4500,7 +4500,7 @@ const weapons = {
         "PVE": "",
         "SPECIAL": ""
     }],
-    "Off Hand Weapons": [{
+    "OH": [{
         "NAME": "Kingsfall",
         "AEP": "383",
         "MAEP": "383",
@@ -9260,4 +9260,3 @@ const weapons = {
         "SPECIAL": "45 DoT"
     }]
 }
-export default weapons;
