@@ -57,9 +57,9 @@ export default class ItemCategory extends React.Component {
       return {
         values
       };
-    });
+    }, () => { this.calculate() });
 
-    this.calculate()
+    
   }
 
   calculate(){
