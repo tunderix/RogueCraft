@@ -10,7 +10,6 @@ function App(){
       <Container>
         <Header />
         <Content />
-        <ArmorComponent></ArmorComponent>
       </Container>
     </div>
   );

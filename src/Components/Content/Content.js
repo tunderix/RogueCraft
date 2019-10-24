@@ -1,6 +1,7 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import { EquipmentSelection, Damage, ItemSelector } from '../';
+import TabPanels from './TabPanels';
 
 const INITIAL_STATE = {
   MAEP: 0,
@@ -21,11 +22,16 @@ export default class Content extends React.Component {
 
   render(){
     return (
-        <Row>
-          <ItemSelector onEquip={this.onEquip}></ItemSelector>
-          <EquipmentSelection></EquipmentSelection>
-          <Damage maep={this.state.MAEP} hit={this.state.HIT} crit={this.state.CRIT}></Damage>
-        </Row>
+        <div>
+          <Row>
+            <Damage maep={this.state.MAEP} hit={this.state.HIT} crit={this.state.CRIT}></Damage>
+          </Row>
+            
+          <Row style={{flex: 1}}>
+            <TabPanels onEquip={this.onEquip}></TabPanels>
+          </Row>
+
+        </div>
     );
   }
 }

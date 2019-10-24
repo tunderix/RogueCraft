@@ -45,7 +45,7 @@ export default class ItemListItem extends React.Component {
 
   render(){
     return (
-        <ListGroup.Item>
+        <ListGroup.Item style={{paddingBottom: 0, paddingTop: 0}}>
           
           <Dropdown style={{ float: "left" }}>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
