@@ -3,7 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { EquipmentSelection, Damage, ItemSelector } from '../';
 import 'react-tabs/style/react-tabs.css';
 import style from './Style'
-
+import Talents from '../Talents'
 
 export default class TabPanels extends React.Component {
     constructor(props) {
@@ -17,7 +17,7 @@ export default class TabPanels extends React.Component {
         },
         "Talents": { 
             img: "eec97ae821295f42e3969e082be11fac.png", color: "IndianRed",
-            component: (<div></div>)
+            component: (<Talents></Talents>)
         },
         "Buffs": { 
             img: "eec97ae821295f42e3969e082be11fac.png", color: "IndianRed",
